@@ -7,24 +7,18 @@ def turn_right():
     turn_left()
     
 def jump():
-    turn_right()
-    move()
-    turn_right()
-    move()
-    
-def up():
     turn_left()
     while wall_on_right():
         move()
-    jump()
-
-def down():
+    turn_right()
+    move()
+    turn_right()
     while front_is_clear():
         move()
     turn_left()
     
 while not at_goal():
-    while front_is_clear():
+    if wall_in_front():
+        jump()
+    else:
         move()
-    up()
-    down()
